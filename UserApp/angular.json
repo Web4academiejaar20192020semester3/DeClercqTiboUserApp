@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "user-app": {
+    "UserApp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/user-app",
+            "outputPath": "dist/UserApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "user-app:build"
+            "browserTarget": "UserApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "user-app:build:production"
+              "browserTarget": "UserApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "user-app:build"
+            "browserTarget": "UserApp:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "user-app:serve"
+            "devServerTarget": "UserApp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "user-app:serve:production"
+              "devServerTarget": "UserApp:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "user-app"
+  "defaultProject": "UserApp"
 }
