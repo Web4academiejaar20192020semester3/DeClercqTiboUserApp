@@ -1,7 +1,13 @@
-import {Injectable} from '@angular/core';
-import {User} from './user';
-import {USERS} from './mock-users';
+import {Injectable, NgModule} from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { UserComponent } from './user/user.component';
 import {Observable, of} from 'rxjs';
+import {USERS} from './mock-users';
+
+import {Observable, of} from 'rxjs';
+
+import {User} from './user';
+
 import {MessageService} from './message.service';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {catchError, map, tap} from 'rxjs/operators';
@@ -9,9 +15,11 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': '*' })
 
+
 };
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   /* Chatapp draaide op Poort 8081, dit gewijzgid worden voor het runnen van de userapp*/
@@ -26,6 +34,7 @@ export class UserService {
     /*return this.http.get<User[]>(this.userUrl).pipe(catchError(this.handleError< User[]>('getUsers')));*/
     return this.http.get<User[]>(this.userUrl + 'GetUsers');
   }
+
   getUser(id: string): Observable<User> {
     const param = new HttpParams().set('userId', id);
     return this.http.get<User>(this.userUrl + 'GetUser', {params: param});
@@ -35,4 +44,12 @@ export class UserService {
     this.messageService.add(`HeroService: ${message}`);
   }
 
+
+
+ /* getUser(id: number) {
+   this.messageService.add('user: fetched user id={}');
+   return of (USERS.find(user => user.id));
+  }*/
+
 }
+

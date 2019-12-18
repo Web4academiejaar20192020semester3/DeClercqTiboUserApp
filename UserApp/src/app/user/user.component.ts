@@ -11,15 +11,15 @@ import {UserService} from '../user.service';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private userService: UserService) {
-  }
-
   users = USERS;
   selectedUser: User;
 
-  onSelect(user: User): void {
-    this.selectedUser = user;
+  constructor(private userService: UserService) {
   }
+
+  /*onSelect(user: User): void {
+    this.selectedUser = user;
+  }*/
 
   ngOnInit() {
     this.getUsers();
